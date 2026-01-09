@@ -16,6 +16,9 @@ class AnalyticsEvent {
 
   // Core business action
   static const String taskAdded = 'task_added';
+  static const String taskCompleted = 'task_completed';
+  static const String taskDeleted = 'task_deleted';
+  static const String taskUpdated = 'task_updated';
 
   // Generic interaction tracking
   static const String uiInteraction = 'ui_interaction';
