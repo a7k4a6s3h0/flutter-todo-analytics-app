@@ -11,6 +11,10 @@ class MetricsRepository {
   }
 
   double get featureAdoptionRate {
+    print('Interactions: ${_storage.totalInteractions}');
+    print('Tasks added: ${_storage.taskAddedCount}');
+
+
     if (_storage.totalInteractions == 0) return 0;
 
     return _storage.taskAddedCount / _storage.totalInteractions;

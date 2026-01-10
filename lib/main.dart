@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'firebase_options.dart';
 import 'app/app_lifecycle.dart';
-import 'analytics/analytics_navigation_observer.dart';
 import 'features/tasks/task_list_screen.dart';
-
+import 'package:firebase_analytics/firebase_analytics.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
 
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  // FirebaseAnalytics.instance.logEvent(name: 'manual_test_event');
   final lifecycleObserver = AppLifecycleObserver();
   lifecycleObserver.startObserving();
 
@@ -20,27 +23,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      navigatorObservers: [AnalyticsNavigationObserver(),],
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const MyHomePage(),
-      },
+      navigatorObservers: [
+        // navigation analytics observer already added earlier
+      ],
       home: const TaskListScreen(),
     );
   }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context)
-
 }

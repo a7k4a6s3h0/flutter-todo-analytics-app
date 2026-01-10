@@ -62,16 +62,17 @@ class AnalyticsService {
 
   /// Core business action
   Future<void> logTaskAdded() async {
+    LocalAnalyticsStorage().taskAddedCount++;
     await logEvent(AnalyticsEvent.taskAdded);
   }
-  Future<void> logTaskCompleted() async {
-    await logEvent(AnalyticsEvent.taskCompleted);
+  Future<void> logTaskCompleted(String taskId) async {
+    await logEvent(AnalyticsEvent.taskCompleted, parameters: {'task_id': taskId});
   }
-  Future<void> logTaskDeleted() async {
-    await logEvent(AnalyticsEvent.taskDeleted);
+  Future<void> logTaskDeleted(String taskId) async {
+    await logEvent(AnalyticsEvent.taskDeleted, parameters: {'task_id': taskId});
   }
-  Future<void> logTaskUpdated() async {
-    await logEvent(AnalyticsEvent.taskUpdated);
+  Future<void> logTaskUpdated(String taskId) async {
+    await logEvent(AnalyticsEvent.taskUpdated, parameters: {'task_id': taskId});
   }
 
   /// Generic interaction counter

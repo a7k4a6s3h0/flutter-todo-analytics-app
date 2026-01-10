@@ -9,6 +9,19 @@ class TaskModel {
     this.isCompleted = false,
   });
 
+  void markAsCompleted() {
+    isCompleted = true;
+  }
+
+  void markAsIncomplete() {
+    isCompleted = false;
+  }
+
+  void updateTitle(String newTitle) {
+    title = newTitle;
+  }
+
+
   // Factory constructor to create a TaskModel from a map
   factory TaskModel.fromMap(Map<String, dynamic> data) {
     return TaskModel(
