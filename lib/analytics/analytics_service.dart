@@ -39,7 +39,7 @@ class AnalyticsService {
     await logEvent(AnalyticsEvent.sessionStart);
   }
 
-  /// App sent to background or session ended
+  /// session ended
   Future<void> logSessionEnd() async {
     await logEvent(AnalyticsEvent.sessionEnd);
   }
