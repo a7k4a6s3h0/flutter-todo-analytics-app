@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../analytics/analytics_service.dart';
 import 'task_model.dart';
 import 'add_task_screen.dart';
+import '../metrics/metrics_screen.dart';
 
 class TaskListScreen extends StatefulWidget {
   const TaskListScreen({super.key});
@@ -26,6 +27,13 @@ class _TaskListScreenState extends State<TaskListScreen> {
             onPressed: () {
               _analyticsService.logUiInteraction('open_metrics');
               // Metrics screen will be added later
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  settings: const RouteSettings(name: 'Metrics'),
+                  builder: (_) => MetricsScreen(),
+                ),
+              );
             },
           ),
         ],

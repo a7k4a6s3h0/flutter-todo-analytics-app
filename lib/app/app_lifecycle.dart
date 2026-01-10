@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../analytics/analytics_service.dart';
+import '../data/local_storage.dart';
 
 /// Observes app lifecycle changes to track sessions accurately.
 class AppLifecycleObserver extends WidgetsBindingObserver {
@@ -26,11 +27,13 @@ class AppLifecycleObserver extends WidgetsBindingObserver {
         _analyticsService.logAppOpened();
         _analyticsService.logSessionStart();
         _sessionStartTime = DateTime.now();
+        LocalAnalyticsStorage().appLaunchTimes.add(DateTime.now());
         break;
       case AppLifecycleState.inactive:
       case AppLifecycleState.paused:
         if(_sessionStartTime == null) return;
         final sessionDuration = DateTime.now().difference(_sessionStartTime!);
+        LocalAnalyticsStorage().sessionDurations.add(sessionDuration.inSeconds);
         _analyticsService.logAppBackgrounded();
         _analyticsService.logSessionEnd();
         _sessionStartTime = null;

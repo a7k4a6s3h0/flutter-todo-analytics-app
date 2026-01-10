@@ -1,6 +1,7 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'analytics_events.dart';
+import '../data/local_storage.dart';
 
 /// Central service responsible for all analytics tracking.
 class AnalyticsService {
@@ -75,6 +76,7 @@ class AnalyticsService {
 
   /// Generic interaction counter
   Future<void> logUiInteraction(String interactionType) async {
+    LocalAnalyticsStorage().totalInteractions++;
     await logEvent(AnalyticsEvent.uiInteraction,
         parameters: {'interaction_type': interactionType});
   }
