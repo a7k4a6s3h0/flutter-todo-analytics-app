@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 
 import 'app/app_lifecycle.dart';
 import 'analytics/analytics_navigation_observer.dart';
+import 'features/tasks/task_list_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,11 +27,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const MyHomePage(),
       },
-      home: Scaffold(
-        body: Center(
-          child: Text('Todo Analytics App'),
-        ),
-      ),
+      home: const TaskListScreen(),
     );
   }
 }
@@ -45,5 +42,5 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context)
-  
+
 }
