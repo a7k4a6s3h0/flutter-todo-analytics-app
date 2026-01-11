@@ -126,6 +126,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
               _tasks.add(newTask);
             });
           }
+          // final visibleTasks = _tasks.where((task) => !task.isCompleted);
         },
         child: const Icon(Icons.add),
       ),
@@ -155,12 +156,13 @@ class _TaskListScreenState extends State<TaskListScreen> {
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      IconButton(
-                        icon: const Icon(Icons.edit),
-                        onPressed: () {
-                          _showEditTaskDialog(_tasks[index]);
-                        },
-                      ),
+                      if (!_tasks[index].isCompleted)
+                        IconButton(
+                          icon: const Icon(Icons.edit),
+                          onPressed: () {
+                            _showEditTaskDialog(_tasks[index]);
+                          },
+                        ),
                       IconButton(
                         icon: const Icon(Icons.delete),
                         onPressed: () {
