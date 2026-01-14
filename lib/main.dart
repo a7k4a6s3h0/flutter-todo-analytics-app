@@ -5,6 +5,8 @@ import 'firebase_options.dart';
 import 'app/app_lifecycle.dart';
 import 'features/tasks/task_list_screen.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'analytics/analytics_navigation_observer.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       navigatorObservers: [
-        // navigation analytics observer already added earlier
+        AnalyticsNavigationObserver(),
       ],
       home: const TaskListScreen(),
     );

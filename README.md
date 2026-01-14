@@ -172,7 +172,9 @@ To reduce initial friction, the following improvements are suggested:
 
 - Automatically focus the task input field on first launch
 - Provide an example placeholder such as “Buy groceries” to guide first-time users
-
+- Add an optional timer to tasks so users can track how long a task takes and set a target completion time
+- Send notifications when a task is completed to improve the overall user experience
+- Allow users to categorize tasks and provide an analytics view to show task completion rates, time spent, and time saved, which can help improve feature adoption
 ---
 
 ## Security and Repository Hygiene

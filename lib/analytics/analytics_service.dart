@@ -2,7 +2,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'analytics_events.dart';
 import '../data/local_storage.dart';
-
+    
 /// Central service responsible for all analytics tracking.
 class AnalyticsService {
 

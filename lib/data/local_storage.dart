@@ -1,5 +1,4 @@
 /// Simple in-memory storage for analytics data.
-/// Can be replaced with persistent storage later.
 class LocalAnalyticsStorage {
   static final LocalAnalyticsStorage _instance =
       LocalAnalyticsStorage._internal();
@@ -8,7 +7,7 @@ class LocalAnalyticsStorage {
 
   LocalAnalyticsStorage._internal();
 
-  // Raw data stores
+  // Raw data storages
   final List<int> sessionDurations = [];
   int totalInteractions = 0;
   int taskAddedCount = 0;

@@ -42,7 +42,6 @@ class AppLifecycleObserver extends WidgetsBindingObserver {
         _analyticsService.logSessionEnd();
         break;
       case AppLifecycleState.hidden:
-        // TODO: Handle this case if needed for specific analytics
         break;
     }
   }

@@ -97,7 +97,6 @@ class _TaskListScreenState extends State<TaskListScreen> {
             icon: const Icon(Icons.analytics),
             onPressed: () {
               _analyticsService.logUiInteraction('open_metrics');
-              // Metrics screen will be added later
               Navigator.push(
                 context,
                 MaterialPageRoute(
